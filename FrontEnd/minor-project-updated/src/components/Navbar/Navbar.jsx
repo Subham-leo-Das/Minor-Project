@@ -15,7 +15,6 @@ export default function Navbar(props) {
             </a>
           </li>
           
-          
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Departments
@@ -37,14 +36,19 @@ export default function Navbar(props) {
               Contact us
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/Login">
-              Login
-            </a>
-          </li>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/Login">Login as patient</a></li>
+            <li><a class="dropdown-item" href="/Login">Login as hospital/doctor</a></li>
+            <li><a class="dropdown-item" href="/AdminLogin">Login as Admin</a></li>
+          </ul>
+        </li>
+        </div>
         </ul>
-        
-        
       </div>
     </nav>
   );

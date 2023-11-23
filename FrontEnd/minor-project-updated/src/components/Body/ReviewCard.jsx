@@ -13,8 +13,11 @@ import './ReviewCard.css';
 
 export default function ReviewCard() {
   return (
+    <>
+    <div className="user-reviews-header">
+      User Reviews
+    </div>
     <div className="card-container">
-      
       <MDBCard className="review-card">
         <MDBCardImage src='https://static.ftadviser.com/public/images/authors/Dave%20Tonge.png'  position='top' alt='...'/><hr/>
         <MDBCardBody>
@@ -50,7 +53,7 @@ export default function ReviewCard() {
 
       
 
-     
     </div>
+      </>
   );
 }
