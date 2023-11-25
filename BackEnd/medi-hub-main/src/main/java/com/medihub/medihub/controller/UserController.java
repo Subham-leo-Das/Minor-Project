@@ -1,34 +1,45 @@
 package com.medihub.medihub.controller;
 import java.util.List;
+import java.util.Optional;
+
+import com.medihub.medihub.entity.Appointment;
 import com.medihub.medihub.entity.User;
 import com.medihub.medihub.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("user")
 @AllArgsConstructor
+@RequestMapping("users")
 @CrossOrigin(maxAge = 500)
 public class UserController {
-
     private UserService userService;
-    @PostMapping("add")
-    public void addUser(@RequestBody User user){
-        userService.save(user);
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
-    @GetMapping("get")
 
-    public List<User> getUser(){return userService.getUser();}
+    @GetMapping("/{id}")
+    public Optional<User> getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
 
-    @DeleteMapping("delete/{id}")
-    public void deleteUser(@PathVariable int id){
+    @PostMapping("add")
+    public void saveUser(@RequestBody User user) {
+        userService.saveUser(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
 
-    @PutMapping("update/{id}")
-    public void updateUser(@PathVariable int id,@RequestBody User user){
-        userService.updateUser(id,user);
+    @PostMapping("/{userId}/appointments")
+    public User scheduleAppointment(
+            @PathVariable Long userId,
+            @RequestBody Appointment appointment) {
+        return userService.scheduleAppointment(userId, appointment);
     }
 }
-
 

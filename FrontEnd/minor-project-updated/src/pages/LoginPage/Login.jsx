@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Axios from "axios";
 
 function LoginPage() {
+  const url="http://localhost:8080/login";
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,6 +18,9 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    const newData={...formData};
+    newData[e.target.id]=e.target.value;
+    setFormData(newData);
     const { id, value, type } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -50,7 +56,29 @@ function LoginPage() {
     }
   };
 
+  function submit(e){
+    e.preventDefault();
+    Axios.post(url,{
+      userName:formData.email,
+      password:formData.password
+    }).then((res)=>{
+      if(res.data==true){
+        sessionStorage.setItem("email",formData.email);
+        console.log(res.data);
+        navigate("/");
+        alert("login Successful");
+      }
+      else{
+        console.log("UserName/Password incorrect");
+        alert("UserName/Password incorrect");
+      }
+    })
+  }
+
   return (
+    <>
+    <div>
+      <Navbar/>
     <div className="LoginPage">
       <section className="vh-100 overflow-auto">
         <div className="container h-100">
@@ -63,17 +91,18 @@ function LoginPage() {
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                         Login
                       </p>
-                      <form className="mx-1 mx-md-4">
+                      <form onSubmit={(e)=>submit(e)} className="mx-1 mx-md-4">
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="email"
                               id="email"
+                              value={formData.email}
                               className={`form-control ${
                                 errors.email ? "is-invalid" : ""
                               }`}
-                              onChange={handleChange}
+                              onChange={(e)=>handleChange(e)}
                             />
                             <label className="htmlForm-label" htmlFor="email">
                               Your Email
@@ -92,10 +121,11 @@ function LoginPage() {
                             <input
                               type={showPassword ? "text" : "password"}
                               id="password"
+                              value={formData.password}
                               className={`form-control ${
                                 errors.password ? "is-invalid" : ""
                               }`}
-                              onChange={handleChange}
+                              onChange={(e)=>handleChange(e)} 
                             />
                             <label
                               className="htmlForm-label"
@@ -122,7 +152,7 @@ function LoginPage() {
 
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button
-                            type="button"
+                            type="submit"
                             className="btn btn-primary btn-lg"
                             onClick={handleSubmit}
                           >
@@ -159,6 +189,8 @@ function LoginPage() {
         </div>
       </section>
     </div>
+    </div>
+    </>
   );
 }
 

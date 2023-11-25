@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 export default function Navbar(props) {
+  useEffect(()=>{
+    console.log("Hi");
+    if(sessionStorage.getItem("email")!=null){
+      document.getElementById("login-navbar").style.display="none";
+    }
+    else{
+      document.getElementById("login-navbar").style.display="block";
+    }
+  });
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -36,8 +45,8 @@ export default function Navbar(props) {
               Contact us
             </a>
           </li>
-          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-          <li class="nav-item dropdown">
+          <div  className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <li id="login-navbar" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Login
           </a>

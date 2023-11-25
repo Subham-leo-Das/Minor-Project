@@ -1,7 +1,10 @@
 import React from 'react'
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function AdminHome(){
   return (
+    <>
+    <Navbar/>
     <div className="Admin">
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
@@ -24,5 +27,6 @@ export default function AdminHome(){
   </div>
 </nav>
     </div>
+    </>
   )
 }

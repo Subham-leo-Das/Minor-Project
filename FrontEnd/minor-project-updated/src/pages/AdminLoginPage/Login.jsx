@@ -1,7 +1,10 @@
 import React from 'react'
 import './Login.css'
+import Navbar from "../../components/Navbar/Navbar";
 export default function Login(){
   return (
+    <>
+    <Navbar/>
     <div className="loginBox">
     <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px"/>
     <h3>Sign in here</h3>
@@ -19,5 +22,6 @@ export default function Login(){
         <a href="/AdminRegistration">Register</a>
     </div>
 </div>
+</>
   )
 }

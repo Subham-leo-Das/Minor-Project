@@ -1,6 +1,7 @@
 import React from 'react';
 import "./DoctorList.css";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from 'mdb-react-ui-kit';
+import Navbar from '../../components/Navbar/Navbar';
 
 const DoctorList = () => {
   const doctors = [
@@ -12,7 +13,10 @@ const DoctorList = () => {
     { id: 6, name: 'Dr. James Brown', specialty: 'Dermatologist' },
   ];
 
-  return (
+  return ( 
+    
+    <div>
+      <Navbar/>
     <MDBContainer>
       <MDBRow>
         {doctors.map((doctor) => (
@@ -30,6 +34,7 @@ const DoctorList = () => {
         ))}
       </MDBRow>
     </MDBContainer>
+    </div>
   );
 };
 

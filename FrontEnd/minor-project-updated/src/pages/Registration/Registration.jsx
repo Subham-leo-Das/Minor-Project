@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Registration.css';
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function Registration() {
-  const url = 'http://localhost:8080/user/add';
+  const url = 'http://localhost:8080/users/add';
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -15,7 +16,7 @@ export default function Registration() {
     state: '',
     city: '',
     password: '',
-    phoneNo: '',
+    phone: '',
     age: '',
   });
 
@@ -47,8 +48,8 @@ export default function Registration() {
     }
   
     const phoneRegex = /^[0-9]{10}$/;
-    if (!phoneRegex.test(data.phoneNo)) {
-      newErrors.phoneNo = 'Invalid phone number. It must be 10 digits long and contain only numbers.';
+    if (!phoneRegex.test(data.phone)) {
+      newErrors.phone = 'Invalid phone number. It must be 10 digits long and contain only numbers.';
     }
   
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -72,8 +73,8 @@ export default function Registration() {
       gender: data.gender,
       state: data.state,
       city: data.city,
-      pinCode: data.password,
-      phoneNo: data.phoneNo,
+      password: data.password,
+      phone: data.phone,
       age: data.age,
     })
       .then((response) => {
@@ -96,6 +97,8 @@ export default function Registration() {
   }
 
   return (
+    <>
+    <Navbar/>
     <form onSubmit={(e) => submit(e)}>
       <section className="h-100 bg-info">
         <div className="container py-5 h-100">
@@ -188,8 +191,8 @@ export default function Registration() {
                             <option value="1">City</option>
                             <option value="Amaravati">Amaravati</option>
                             <option value="Itanagar">Itanagar</option>
-                            <option value="4">Dispur</option>
-                            <option value="5">Patna</option>
+                            <option value="Dispur">Dispur</option>
+                            <option value="Patna">Patna</option>
                             {/* ... (other cities) ... */}
                           </select>
                         </div>
@@ -209,16 +212,16 @@ export default function Registration() {
                         <div className="col-md-8 mb-4">
                           <input
                             type="text"
-                            id="phoneNo"
+                            id="phone"
                             className={`form-control form-control-lg ${errors.phoneNo ? 'is-invalid' : ''}`}
                             onChange={(e) => handle(e)}
-                            value={data.phoneNo}
+                            value={data.phone}
                             maxLength="10"
                           />
                           <label className="form-label" htmlFor="form3Example99">
                             Phone No.
                           </label>
-                          {errors.phoneNo && <div className="invalid-feedback">{errors.phoneNo}</div>}
+                          {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
                         </div>
                       </div>
 
@@ -267,5 +270,6 @@ export default function Registration() {
         </div>
       </section>
     </form>
+    </>
   );
 }
