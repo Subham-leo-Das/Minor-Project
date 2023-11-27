@@ -9,7 +9,7 @@ export default function Navbar(props) {
     else{
       document.getElementById("login-navbar").style.display="block";
     }
-  });
+  },[]);
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -29,14 +29,12 @@ export default function Navbar(props) {
             Departments
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/DoctorList">Dentist</a></li>
-            <li><a class="dropdown-item" href="/DoctorList">Eye Specialist</a></li>
+            <li><a class="dropdown-item" href="/DoctorList?speciality=Dermatology">Dermatology</a></li>
+            <li><a class="dropdown-item" href="/DoctorList?speciality=Orthopedics">Orthopedics</a></li>
             
-            <li><a class="dropdown-item" href="/DoctorList">Gynocologist</a></li>
-            <li><a class="dropdown-item" href="/DoctorList">Cardiologists</a></li>
-            <li><a class="dropdown-item" href="/DoctorList">Psychiatrist</a></li>
-            <li><a class="dropdown-item" href="/DoctorList">Medicine specialist</a></li>
-            <li><a class="dropdown-item" href="/DoctorList">Child specialist</a></li>
+            <li><a class="dropdown-item" href="/DoctorList?speciality=General Medicine">General Medicine</a></li>
+            <li><a class="dropdown-item" href="/DoctorList?speciality=Cardiology">Cardiology</a></li>
+            <li><a class="dropdown-item" href="/DoctorList?speciality=Neurology">Neurology</a></li>
           </ul>
         </li>
           

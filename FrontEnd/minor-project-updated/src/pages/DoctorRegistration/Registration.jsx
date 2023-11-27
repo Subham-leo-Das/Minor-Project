@@ -182,6 +182,24 @@ export default function Registration() {
                         {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                       </div>
 
+                      <div className="row">
+                        <div className="col-md-6 mb-4">
+                          <select
+                            className="select"
+                            id="specializationId"
+                            onChange={(e) => handle(e)}
+                            value={data.specializationId}
+                          >
+                            <option value="1">Select Specialization</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="General Medicine">General Medicine</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Nuerology">Nuerology</option>
+                          </select>
+                        </div>
+                      </div> 
+
                       <div className="form-outline mb-4">
                         <input
                           type="password"
@@ -194,7 +212,7 @@ export default function Registration() {
                           Password
                         </label>
                         {errors.password && <div className="invalid-feedback">{errors.password}</div>}
-                      </div>
+                      </div> 
 
                       <div className="d-flex justify-content-end pt-3">
                         <button type="reset" className="btn btn-light btn-lg">
