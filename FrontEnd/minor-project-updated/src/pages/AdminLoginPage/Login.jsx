@@ -1,6 +1,7 @@
 import React from 'react'
 import './Login.css'
 import Navbar from "../../components/Navbar/Navbar";
+import AdminNavbar from '../AdminPanel/AdminNavbar';
 export default function Login(){
   return (
     <>
@@ -14,7 +15,7 @@ export default function Login(){
             <input id="pass" type="password" name="Password" placeHolder="Password"/>
         </div>
         <div className="submit-button">
-        <a href='/AdminHome'>Submit</a>
+        <a href='/AdminNavbar'>Submit</a>
         </div>
     </form>
     <a className='forget-pass' href="/">Forgot Password<br/> </a>

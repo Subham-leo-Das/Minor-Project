@@ -4,7 +4,9 @@ import Login from "./pages/LoginPage/Login";
 import Registration from "./pages/Registration/Registration";
 import AdminLogin from "./pages/AdminLoginPage/Login"
 import AdminRegistration from "./pages/AdminLoginPage/Registration"
-import AdminHome from "./pages/AdminNavbar/Home";
+import AdminNavbar from "./pages/AdminPanel/AdminNavbar";
+import Patients from "./pages/AdminPanel/Patients";
+import Doctors from "./pages/AdminPanel/Doctors";
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Route path="/DoctorList" element={<DoctorList/>}/>
         <Route path="/AdminLogin" element={<AdminLogin/>}/>
         <Route path="/AdminRegistration" element={<AdminRegistration/>}/>
-        <Route path="/AdminHome" element={<AdminHome/>}/>
+        <Route path="/AdminNavbar" element={<AdminNavbar/>}/>
+        <Route path="/Patients" element={<Patients/>}/>
+        <Route path="/Doctors" element={<Doctors/>}/>
       </Routes>
       </BrowserRouter>
       

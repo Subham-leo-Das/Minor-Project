@@ -21,8 +21,10 @@
     justify-content: center;
     display: flex;
     position: relative;
-    font-size: 60px;
+    font-size: 35px;
     font-weight:600;
     color: #5999ff;
     background: #3b3b3b;
+    padding: -50px;
+    height: 60px;
   }

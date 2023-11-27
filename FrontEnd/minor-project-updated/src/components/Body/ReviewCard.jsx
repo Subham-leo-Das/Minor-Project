@@ -15,7 +15,7 @@ export default function ReviewCard() {
   return (
     <>
     <div className="user-reviews-header">
-      User Reviews
+      Recent Reviews
     </div>
     <div className="card-container">
       <MDBCard className="review-card">
