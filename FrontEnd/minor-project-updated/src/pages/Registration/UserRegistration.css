@@ -1,0 +1,28 @@
+.user .fas {
+  
+   
+    margin-bottom: 5%;
+  }
+
+  
+  .user .toggle {
+    margin-bottom: 5%;
+    .btn {
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  
+    .user .btn:hover {
+      color: red;
+    }
+  }
+  .user .image {
+    margin-top: 35%;
+  }
+
+  .user input {
+    padding-inline: 10px;
+    width: 250px;
+  }
+
+  
