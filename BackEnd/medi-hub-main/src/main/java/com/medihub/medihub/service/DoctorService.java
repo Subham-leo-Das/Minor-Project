@@ -3,6 +3,7 @@ import com.medihub.medihub.entity.Appointment;
 import com.medihub.medihub.entity.Availability;
 import com.medihub.medihub.entity.Doctor;
 import com.medihub.medihub.repository.DoctorRepository;
+import com.medihub.medihub.util.SecurityManager;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class DoctorService {
 
     private DoctorRepository doctorRepository;
     private AvailabilityService availabilityService;
+    private SecurityManager securityManager;
 
     public List<Doctor> getAllDoctors() {
         return doctorRepository.findAll();
@@ -27,6 +29,7 @@ public class DoctorService {
     }
 
     public Doctor saveDoctor(Doctor doctor) {
+        doctor.setPassword(securityManager.encryptPassword(doctor.getPassword()));
         return doctorRepository.save(doctor);
     }
 
@@ -68,5 +71,9 @@ public class DoctorService {
         } else {
             throw new RuntimeException("Doctor not found with id: " + doctorId);
         }
+    }
+
+    public List<Doctor> getDoctorsBySpecialization(String specializationName) {
+        return doctorRepository.findBySpecializationName(specializationName);
     }
 }

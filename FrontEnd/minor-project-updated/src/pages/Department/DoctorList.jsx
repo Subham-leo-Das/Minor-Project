@@ -24,6 +24,7 @@ const DoctorList = () => {
       .get(apiUrl)
       .then((response) => {
         setDoctor(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error("Error fetching doctors:", error);
@@ -41,6 +42,7 @@ const DoctorList = () => {
                 <MDBCardBody>
                   <MDBCardTitle>{d.name}</MDBCardTitle>
                   <MDBCardText>Specialty: {d.specialization.name}</MDBCardText>
+                  <MDBCardText>Experience: {d.experience} Years</MDBCardText>
                   <button className="mx-2">Get an Appointment</button>
                 </MDBCardBody>
               </MDBCard>

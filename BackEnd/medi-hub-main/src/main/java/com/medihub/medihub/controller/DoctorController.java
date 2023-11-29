@@ -6,6 +6,8 @@ import com.medihub.medihub.entity.Doctor;
 import com.medihub.medihub.service.DoctorService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.DayOfWeek;
@@ -14,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(maxAge = 500)
 @RequestMapping("doctors")
 public class DoctorController {
 
@@ -29,7 +32,7 @@ public class DoctorController {
         return doctorService.getDoctorById(id);
     }
 
-    @PostMapping
+    @PostMapping("add")
     public Doctor saveDoctor(@RequestBody Doctor doctor) {
         return doctorService.saveDoctor(doctor);
     }
@@ -59,4 +62,12 @@ public class DoctorController {
             @RequestParam DayOfWeek dayOfWeek) {
         return doctorService.getDoctorAvailability(doctorId, dayOfWeek);
     }
+
+    @GetMapping("/specialization")
+    public ResponseEntity<List<Doctor>> getDoctorsBySpecialization(@RequestParam(value = "name") String specializationName) {
+        List<Doctor> doctors = doctorService.getDoctorsBySpecialization(specializationName);
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
+    }
+
+
 }

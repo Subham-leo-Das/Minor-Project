@@ -14,6 +14,8 @@ public class Doctor {
     private String name;
     private Long experience;
     private Long age;
+    private String email;
+    private String password;
 
     @ManyToOne
     @JoinColumn(name = "specialization_id")

@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Axios from "axios";
 
 function LoginPage() {
-  const url="http://localhost:8080/login";
+  const url="http://localhost:8080/login-doctor";
   const [formData, setFormData] = useState({
     email: "",
     password: "",

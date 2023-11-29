@@ -21,4 +21,9 @@ public class LoginController {
         return new ResponseEntity<>(loginService.checkLogin(loginModel), HttpStatus.OK);
     }
 
+    @PostMapping("login-doctor")
+    public ResponseEntity<Boolean> doctorLogin(@RequestBody LoginModel loginModel){
+        return new ResponseEntity<>(loginService.checkLoginForDoctor(loginModel), HttpStatus.OK);
+    }
+
 }
