@@ -99,11 +99,11 @@ const DoctorRegistration = () => {
                 required
               >
                 <option value="">Select Specialization</option>
-                <option value="1">Cardiology</option>
-                <option value="2">Dermatologist</option>
-                <option value="3">Orthopedics</option>
-                <option value="4">General Medicine</option>
-                <option value="5">Neurology</option>
+                <option value="1">Dermatology</option>
+                <option value="2">Orthopedics</option>
+                <option value="3">General Medicine</option>
+                <option value="4">Cardiology</option>
+                <option value="5">Neurology</option>   
               </select>
             </label>
             <br />

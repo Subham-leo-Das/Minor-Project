@@ -22,7 +22,7 @@ public class DoctorController {
 
     private DoctorService doctorService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Doctor> getAllDoctors() {
         return doctorService.getAllDoctors();
     }
@@ -37,7 +37,7 @@ public class DoctorController {
         return doctorService.saveDoctor(doctor);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteDoctor(@PathVariable Long id) {
         doctorService.deleteDoctor(id);
     }

@@ -178,7 +178,12 @@ export default function Registration() {
                             value={data.state}
                           >
                             <option value="1">States</option>
-                            {/* Add options for states */}
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="West Bengal">West Bengal</option>
+                            
                           </select>
                         </div>
                         <div className="col-md-6 mb-4">
@@ -193,7 +198,8 @@ export default function Registration() {
                             <option value="Itanagar">Itanagar</option>
                             <option value="Dispur">Dispur</option>
                             <option value="Patna">Patna</option>
-                            {/* ... (other cities) ... */}
+                            <option value="Kolkata">Kolkata</option>
+                            
                           </select>
                         </div>
                         <div className="col-md-4 mb-4">
